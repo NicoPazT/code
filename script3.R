@@ -8,6 +8,8 @@ dataset_name <- args[1]
 seed <- as.numeric(args[2])
 file_name <- paste0(dataset_name, ".csv")
 
+install.packages("tree")
+
 # Cargar la librería
 library(tree)
 
