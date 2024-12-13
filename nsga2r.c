@@ -49,7 +49,7 @@ int main (int argc, char **argv)
     FILE *fpt5;
     FILE *fpt6;
 
-    struct problem_instance * pi;
+    /*struct problem_instance * pi;*/
     population *parent_pop;
     population *child_pop;
     population *mixed_pop;
@@ -78,7 +78,7 @@ int main (int argc, char **argv)
     char * instance_route = argv[2];
     char * csv = argv[3];
     printf("%s\n",csv);
-    readInputFile(instance_route, pi);
+    /*readInputFile(instance_route, pi);*/
     readFile(csv);
     printf("Número de columnas: %d", nbin);
     /*if (readFile(csv) != 0) {

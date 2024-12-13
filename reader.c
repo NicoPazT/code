@@ -103,7 +103,7 @@ void readCTrucks(FILE *f, problem_instance *pi) {
         pi->trucks[id].capacity = capacity;
 }
 
-void readDepots(FILE *f, problem_instance *pi) {
+/*void readDepots(FILE *f, problem_instance *pi) {
     int debug=0, id=0;
     char *token;
 
@@ -123,7 +123,7 @@ void readDepots(FILE *f, problem_instance *pi) {
     while( token != NULL ) {
         if (debug) printf("%s\n", token);
         pi->depots[id].id=id;
-        pi->depots[id].names[0] = atoi(token); /*primer nombre*/
+        pi->depots[id].names[0] = atoi(token);
         token=strtok(NULL, " ");
         id++;
     }
@@ -132,7 +132,7 @@ void readDepots(FILE *f, problem_instance *pi) {
             printf ("%d, %ld\n", pi->depots[id].id, pi->depots[id].names[0]);
     }
     if (debug) getchar();
-}
+} */
 
 void readAlternativeNames(FILE *f, problem_instance *pi, int index) {
     int debug=0, id=0;
@@ -332,10 +332,10 @@ void readTrucksDepots(FILE *f, problem_instance *pi, char * type) {
 }
 
 
-int readInputFile(char* filePath, problem_instance *pi) {
+/*int readInputFile(char* filePath, problem_instance *pi) {
     int debug=0;
     FILE* fh=fopen(filePath, "r");
-    /*check if file exists*/
+
     if ( fh==NULL ){
         printf("File does not exists %s", filePath);
         return 0;
@@ -391,6 +391,6 @@ int readInputFile(char* filePath, problem_instance *pi) {
     if(debug) getchar();
 
     return 0;
-}
+}*/
 
 

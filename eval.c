@@ -99,11 +99,12 @@ double ejecutar_script_R(const char *csv_file, int seed, int *num_variables, ind
     FILE *file = fopen("scriptR.csv", "r");
     fscanf(file, "%lf %d", &acc, num_variables);
 
-    ind->characts = malloc(*num_variables * sizeof(int));
+    ind->characts = (int *)malloc(*num_variables * sizeof(int));
 
     for (i = 0; i < *num_variables; i++) {
         fscanf(file, "%d", &(ind->characts[i]));
     }
+    /*printf("Número de variables: %d\n", *num_variables);*/
 
     fclose(file);
 
@@ -158,6 +159,7 @@ void evaluate_ind (individual *ind)
     if (acc != -1) {
         ind->obj[0] = acc * -1;       
         ind->obj[1] = num_variables;
+        /*printf("Obj 2: %d\n", ind->obj[1]);*/
     } else {
         ind->obj[0] = 0.0;
         ind->obj[1] = 0;
