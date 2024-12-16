@@ -31,7 +31,7 @@ void initialize_ind (individual *ind)
     }
     if (nbin!=0)
     {
-        ind->characts = NULL;
+        /*ind->characts = NULL;*/
         for (j=0; j<nbin; j++)
         {
             for (k=0; k<nbits[j]; k++)

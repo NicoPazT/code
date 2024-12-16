@@ -74,6 +74,7 @@ void deallocate_memory_ind (individual *ind)
         free(ind->xbin);
         free(ind->gene);
         free(ind->xbin_red);
+        free(ind->characts);
     }
     free(ind->obj);
     if (ncon != 0)
