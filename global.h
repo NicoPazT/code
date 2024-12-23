@@ -100,6 +100,7 @@ extern int angle2;
 extern char ***matrix;
 extern int num_rows;
 extern int num_columns;
+extern char *csv;
 
 void allocate_memory_pop (population *pop, int size);
 void allocate_memory_ind (individual *ind);

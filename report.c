@@ -85,12 +85,12 @@ void report_feasible (population *pop, FILE *fpt, FILE *fpt6)
                         fprintf(fpt,"%d\t",pop->ind[i].gene[j][k]);
                     }
                 }
-                printf("Número: %f", pop->ind[i].obj[1]);
+                /*printf("Número: %f", pop->ind[i].obj[1]);*/
                 for (j=0; j<pop->ind[i].obj[1];j++)
                 {
-                    printf("Característica %d: %d", j, pop->ind[i].characts[j]);
+                    /*printf("Característica %d: %d", j, pop->ind[i].characts[j]);*/
                     fprintf(fpt6,"%d\t",pop->ind[i].characts[j]);
-                    printf("Hola %d\n", j);
+                    /*printf("Hola %d\n", j);*/
                 }
                 fprintf(fpt6,"\n");
             }

@@ -73,8 +73,10 @@ void construir_comando_awk(char *comando, const int *lista) {
         }
     }
 
-    strcat(comando, "}' SRBCT.csv > cols_random.csv");
-    
+    strcat(comando, "}' ");
+    strcat(comando, csv);
+    strcat(comando, " > cols_random.csv");
+
     /*printf("Constructed AWK command: %s\n", comando);*/
 }
 
@@ -94,7 +96,6 @@ double ejecutar_script_R(const char *csv_file, int seed, int *num_variables, ind
     system(comando);
     clock_t fin = clock();
     double tiempo_transcurrido = ((double)(fin - inicio)) / CLOCKS_PER_SEC;
-
 
     FILE *file = fopen("scriptR.csv", "r");
     fscanf(file, "%lf %d", &acc, num_variables);

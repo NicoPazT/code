@@ -4,6 +4,7 @@
 # include <stdlib.h>
 # include <math.h>
 # include <unistd.h>
+#include <time.h>
 
 # include "global.h"
 # include "rand.h"
@@ -38,6 +39,7 @@ int angle1;
 int angle2;
 int i;
 int j;
+char *csv;
 
 int main (int argc, char **argv)
 {
@@ -48,6 +50,9 @@ int main (int argc, char **argv)
     FILE *fpt4;
     FILE *fpt5;
     FILE *fpt6;
+
+    time_t inicio_total, fin_total;
+    time(&inicio_total);
 
     /*struct problem_instance * pi;*/
     population *parent_pop;
@@ -76,7 +81,7 @@ int main (int argc, char **argv)
     fprintf(fpt5,"# This file contains information about inputs as read by the program\n");
 
     char * instance_route = argv[2];
-    char * csv = argv[3];
+    csv = argv[3];
     printf("%s\n",csv);
     /*readInputFile(instance_route, pi);*/
     readFile(csv);
@@ -298,5 +303,9 @@ int main (int argc, char **argv)
     free (child_pop);
     free (mixed_pop);
     printf("\n Routine successfully exited \n");
+    time(&fin_total);
+    double total_execution_time = difftime(fin_total, inicio_total);
+    printf("Total execution time: %.2f seconds\n", total_execution_time);
+    printf("Total execution time: %.2f minutes\n", total_execution_time / 60.0);
     return (0);
 }

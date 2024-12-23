@@ -42,6 +42,7 @@ void allocate_memory_ind (individual *ind)
     {
         ind->constr = (double *)malloc(ncon*sizeof(double));
     }
+    ind->characts = NULL;
     return;
 }
 
