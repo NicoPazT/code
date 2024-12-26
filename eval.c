@@ -109,13 +109,13 @@ double ejecutar_script_R(const char *csv_file, int seed, int *num_variables, ind
 
     fclose(file);
 
-    printf("Características utilizadas:\n");
+    /*printf("Características utilizadas:\n");
     for (i = 0; i < *num_variables; i++) {
         printf("%d ", ind->characts[i]);
     }
     printf("\n");
 
-    printf("Tiempo de ejecución de Rscript: %f segundos\n", tiempo_transcurrido);
+    printf("Tiempo de ejecución de Rscript: %f segundos\n", tiempo_transcurrido);*/
 
     return acc;
 }
@@ -166,8 +166,8 @@ void evaluate_ind (individual *ind)
         ind->obj[1] = 0;
     }
 
-    printf("Tiempo de ejecución de awk: %f segundos\n", tiempo_transcurrido);
-    printf("Número de columnas seleccionadas: %d\n", num_unos);
+    /*printf("Tiempo de ejecución de awk: %f segundos\n", tiempo_transcurrido);
+    printf("Número de columnas seleccionadas: %d\n", num_unos);*/
 
     free(lista_binaria);
 

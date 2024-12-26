@@ -45,6 +45,7 @@ size_t find_max_line_length(FILE *file) {
 }
 
 int readFile(char* filePath) {
+
     FILE *file = fopen(filePath, "r");
     if (file == NULL) {
         printf("No se pudo abrir el archivo.\n");

@@ -62,6 +62,8 @@ void report_feasible (population *pop, FILE *fpt, FILE *fpt6)
             }
             fprintf(fpt6,"%e\t",pop->ind[i].obj[0] * -1);
             fprintf(fpt6,"%e\t",pop->ind[i].obj[1]);
+            printf("%e\t",pop->ind[i].obj[0] * -1);
+            printf("%e\t",pop->ind[i].obj[1]);
             if (ncon!=0)
             {
                 for (j=0; j<ncon; j++)
@@ -90,9 +92,11 @@ void report_feasible (population *pop, FILE *fpt, FILE *fpt6)
                 {
                     /*printf("Característica %d: %d", j, pop->ind[i].characts[j]);*/
                     fprintf(fpt6,"%d\t",pop->ind[i].characts[j]);
+                    printf("%d\t",pop->ind[i].characts[j]);
                     /*printf("Hola %d\n", j);*/
                 }
                 fprintf(fpt6,"\n");
+                printf("\n");
             }
             fprintf(fpt,"%e\t",pop->ind[i].constr_violation);
             fprintf(fpt,"%d\t",pop->ind[i].rank);

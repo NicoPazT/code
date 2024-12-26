@@ -80,12 +80,12 @@ int main (int argc, char **argv)
     fprintf(fpt4,"# This file contains the data of all generations\n");
     fprintf(fpt5,"# This file contains information about inputs as read by the program\n");
 
-    char * instance_route = argv[2];
-    csv = argv[3];
-    printf("%s\n",csv);
+    /*char * instance_route = argv[2];*/
+    csv = argv[2];
+    /*printf("%s\n",csv);*/
     /*readInputFile(instance_route, pi);*/
     readFile(csv);
-    printf("Número de columnas: %d", nbin);
+    /*printf("Número de columnas: %d", nbin);*/
     /*if (readFile(csv) != 0) {
         printf("Error al leer el archivo.\n");
         exit(1);
@@ -99,19 +99,19 @@ int main (int argc, char **argv)
         printf("\n");
     }*/
 
-    popsize = atoi(argv[4]);
+    popsize = atoi(argv[3]);
     if (popsize<4 || (popsize%4)!= 0){
         printf("\n population size read is : %d",popsize);
         printf("\n Wrong population size entered, hence exiting \n");
         exit (1);
     }
-    ngen = atoi(argv[5]);
+    ngen = atoi(argv[4]);
     if (ngen<1){
         printf("\n number of generations read is : %d",ngen);
         printf("\n Wrong nuber of generations entered, hence exiting \n");
         exit (1);
     }
-    nobj = atoi(argv[6]);
+    nobj = atoi(argv[5]);
     if (nobj<1){
         printf("\n number of objectives entered is : %d",nobj);
         printf("\n Wrong number of objectives entered, hence exiting \n");
@@ -162,20 +162,20 @@ int main (int argc, char **argv)
         max_binvar[i] = 1.0;      /*Valor máximo de la variable binaria (seleccionada)*/
     }
 
-    pcross_bin = atof (argv[7]);
+    pcross_bin = atof (argv[6]);
     if (pcross_bin<0.0 || pcross_bin>1.0){
         printf("\n Probability of crossover entered is : %e",pcross_bin);
         printf("\n Entered value of probability of crossover of binary variables is out of bounds, hence exiting \n");
         exit (1);
     }
-    pmut_bin = atof (argv[8]);
+    pmut_bin = atof (argv[7]);
     if (pmut_bin<0.0 || pmut_bin>1.0){
         printf("\n Probability of mutation entered is : %e",pmut_bin);
         printf("\n Entered value of probability  of mutation of binary variables is out of bounds, hence exiting \n");
         exit (1);
     }
 
-    printf("\n Input data successfully entered, now performing initialization \n");
+    /*printf("\n Input data successfully entered, now performing initialization \n");*/
     fprintf(fpt5,"\n Population size = %d",popsize);
     fprintf(fpt5,"\n Number of generations = %d",ngen);
     fprintf(fpt5,"\n Number of objective functions = %d",nobj);
@@ -194,8 +194,8 @@ int main (int argc, char **argv)
         fprintf(fpt5,"\n Distribution index for mutation = %e",eta_m);
     }*/
     fprintf(fpt5,"\n Number of binary variables = %d",nbin);
-    printf("nreal: %d", nreal);
-    printf("Hola: %d", nbin);
+    /*printf("nreal: %d", nreal);
+    printf("Hola: %d", nbin);*/
     if (nbin!=0)
     {
         for (i=0; i<nbin; i++)
@@ -232,14 +232,14 @@ int main (int argc, char **argv)
     allocate_memory_pop (mixed_pop, 2*popsize);
     randomize();
     initialize_pop (parent_pop);
-    printf("\n Initialization done, now performing first generation\n");
+    /*printf("\n Initialization done, now performing first generation\n");*/
     decode_pop(parent_pop);
     evaluate_pop (parent_pop);
     assign_rank_and_crowding_distance (parent_pop);
     report_pop (parent_pop, fpt1);
     fprintf(fpt4,"# gen = 1\n");
     report_pop(parent_pop,fpt4);
-    printf("\n gen = 1");
+    /*printf("\n gen = 1");*/
     fflush(stdout);
     /*if (choice!=0)
         onthefly_display (parent_pop,gp,1);*/
@@ -248,7 +248,7 @@ int main (int argc, char **argv)
     fflush(fpt3);
     fflush(fpt4);
     fflush(fpt5);
-    sleep(1);
+    /*sleep(1);*/
     for (i=2; i<=ngen; i++)
     {
         selection (parent_pop, child_pop);
@@ -262,9 +262,9 @@ int main (int argc, char **argv)
         fprintf(fpt4,"# gen = %d\n",i);
         report_pop(parent_pop,fpt4);
         fflush(fpt4);
-        printf("\n gen = %d",i);
+        /*printf("\n gen = %d",i);*/
     }
-    printf("\n Generations finished, now reporting solutions");
+    /*printf("\n Generations finished, now reporting solutions");*/
     report_pop(parent_pop,fpt2);
     report_feasible(parent_pop,fpt3,fpt6);
     if (nreal!=0)
@@ -289,7 +289,6 @@ int main (int argc, char **argv)
     fclose(fpt3);
     fclose(fpt4);
     fclose(fpt5);
-    fclose(fpt6);
     if (nbin!=0)
     {
         free (min_binvar);
@@ -302,10 +301,13 @@ int main (int argc, char **argv)
     free (parent_pop);
     free (child_pop);
     free (mixed_pop);
-    printf("\n Routine successfully exited \n");
+    /*printf("\n Routine successfully exited \n");*/
     time(&fin_total);
     double total_execution_time = difftime(fin_total, inicio_total);
     printf("Total execution time: %.2f seconds\n", total_execution_time);
     printf("Total execution time: %.2f minutes\n", total_execution_time / 60.0);
+    fprintf(fpt6,"Tiempo en segundos: %.2f\n", total_execution_time);
+    fprintf(fpt6,"Tiempo en minutos: %.2f\n", total_execution_time/60.0);
+    fclose(fpt6);
     return (0);
 }
